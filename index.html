@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid layout</title>
+    <style>
+        html, 
+        body {
+            margin: 20px;
+            height: calc(100% - 40px);
+            background-color: burlywood;
+        }
+
+        div {
+            display: flex;                 
+            border: solid 5px darkcyan;           
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            background: #fff;
+
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 
+            [inicio] 1fr
+            [metade-1 meio-1] 1fr
+            [metade-1 meio-2] 1fr [fim];
+            grid-template-rows: 
+            repeat(3, 1fr);
+            /*grid-column-gap: 20px;
+            grid-row-gap: 20px; esta deplacate */
+            gap:80px 30px;
+        }
+
+        .box1 {
+            grid-column-start: meio-2;
+            grid-column-end: fim;
+            grid-column: meio-1 / fim;
+            grid-row: 1 / span 2;
+
+            grid-area: 1 / meio-1 / span 3 / fim;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">01</div>
+    <div class="box2">02</div>
+    <div class="box3">03</div>    
+</body>
+</html>
